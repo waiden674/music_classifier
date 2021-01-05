@@ -3,8 +3,11 @@ import os
 from flask import Flask, render_template
 from . import settings, controllers, models
 from .extensions import db
+from fastai import *
+from fastai.vision import *
 
 project_dir = os.path.dirname(os.path.abspath(__file__))
+
 
 def create_app(config_object=settings):
     # create and configure the app
@@ -16,6 +19,7 @@ def create_app(config_object=settings):
     register_errorhandlers(app)
     return app
 
+
 def register_extensions(app):
     """Register Flask extensions."""
     db.init_app(app)
@@ -24,6 +28,7 @@ def register_extensions(app):
         db.create_all()
     return None
 
+
 def register_blueprints(app):
     """Register Flask blueprints."""
     app.register_blueprint(controllers.home.blueprint)
@@ -31,8 +36,10 @@ def register_blueprints(app):
     app.register_blueprint(controllers.tutorial.blueprint)
     return None
 
+
 def register_errorhandlers(app):
     """Register error handlers."""
+
     @app.errorhandler(401)
     def internal_error(error):
         return render_template('401.html'), 401
