@@ -1,0 +1,29 @@
+{% extends "tutorial/base.html" %}
+{% from "tutorial/repo.html" import render_repo with context %}
+
+{% block title %}Music Classifier{% endblock %}
+{% block subtitle %}Let us predict whether your youtube video is 2000's pop music, classical music, or smooth jazz!{%
+endblock %}
+
+{% block container %}
+  <h4 class="py-1 m-0">Threeway Music Classifier</h4>
+  <p class="mb-5">Make sure that your video is at least 2 minutes long, but less than 30 minutes. Long playlist
+    videos crash may this web application while less than 2 minutes would not provide enough information to infer the
+    genre of the piece.</p>
+  <div class="border rounded p-5 mb-5">
+    <h3 class="py-1 m-0">Select your desired youtube video to classify</h3>
+    <div class="text-center mx-auto mb-3">
+      <form action="{{ url_for('music_classifier.classify') }}" class="d-flex">
+        <input name="query"  class="form-control form-control-sm"  value="{{ query }}" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ" />
+        <button type="submit" class="btn btn-primary btn-sm ml-1">Classify</button>
+      </form>
+    </div>
+    {%if g.classified%}
+    <h5 class="py-1 m-0">Genre of your Youtube Video: {{g.classification}}</h5>
+    <h5 class="py-1 m-0">Confidence: {{g.confidence}}</h5>
+    <h3 class="py-1 m-0">30 seconds of your Youtube video as a Mel Spectrogram:</h3>
+    <img src="{{ g.path_to_image }}" class="w-100" />
+    {% endif %}
+  </div>
+
+{% endblock %}
