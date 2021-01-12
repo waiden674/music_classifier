@@ -6,7 +6,8 @@ my understanding). The model was fine-tuned from a RESNET-34 model and dataset u
 Note that I was unable to use the original Mel spectrograms from the dataset as I was unable to reproduce similar 
 spectrograms using the librosa python module from my end (needed to analyze youtube videos). As such, I created my 
 own spectrograms by converting the original audio files from the GTZAN dataset using my own script named 
-`gtzanToSpec.py`. 
+`gtzanToSpec.py`.
+
 
 More information about the Machine Learning part of this project can be found [here](https://github.com/waiden674/music_classifier_ML)
 
