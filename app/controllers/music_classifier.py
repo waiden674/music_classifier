@@ -17,6 +17,9 @@ learn_inf = load_learner('app/static/fastai_model/export.pkl')
 
 @blueprint.route('/')
 def base():
+    if(not path.exists('app/static/spectrogram')):
+        os.mkdir('app/static/spectrogram')
+
     for f in glob.glob("app/static/spectrogram/*.png"):
         os.remove(f)
 
