@@ -1,4 +1,4 @@
-#Music Classifer by Aiden Zhang
+# Music Classifer by Aiden Zhang
 This is a web application built using the Flask boilerplate code provided by MLH. The machine learning model was 
 created using Fast.ai, a higher level API built on top of Pytorch (similar relationship as Keras to Tensorflow from 
 my understanding). The model was fine-tuned from a RESNET-34 model and dataset used was the GTZAN dataset. 
@@ -10,13 +10,13 @@ own spectrograms by converting the original audio files from the GTZAN dataset u
 
 More information about the Machine Learning part of this project can be found [here](https://github.com/waiden674/music_classifier_ML)
 
-###Future Plans
+### Future Plans
 Currently, the model can only classify between 3 of the original 10 genres in GTZAN dataset due to the fact that it 
 would take too long for me to train all 10 in a free-tier Google Colab. Perhaps in the future, I will find a work 
 around that will allow the model to classify between more genres.
 
 
-###Below is the installation process from the original MLH Flask boilerplate.
+### Below is the installation process from the original MLH Flask boilerplate.
 
 
 # Introduction
