@@ -3,8 +3,6 @@ import os
 from flask import Flask, render_template
 from . import settings, controllers, models
 from .extensions import db
-from fastai import *
-from fastai.vision import *
 
 project_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -34,6 +32,7 @@ def register_blueprints(app):
     app.register_blueprint(controllers.home.blueprint)
     app.register_blueprint(controllers.auth.blueprint)
     app.register_blueprint(controllers.tutorial.blueprint)
+    app.register_blueprint(controllers.music_classifier.blueprint)
     return None
 
 
